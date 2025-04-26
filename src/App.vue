@@ -1,4 +1,5 @@
 <script setup>
+import { createRouter } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 </script>
@@ -13,7 +14,12 @@ import TheWelcome from './components/TheWelcome.vue'
   </header>
 
   <main>
-    <TheWelcome />
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/project/1/multimedia">ProjectMultimedia</router-link>
+    </nav>
+
+    <router-view />
   </main>
 </template>
 
