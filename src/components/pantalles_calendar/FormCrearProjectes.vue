@@ -57,6 +57,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const form = ref({
   title: '',
@@ -100,7 +103,6 @@ function handleDropVideos(e) {
 }
 
 function handleSubmit() {
-  alert('Evento creado (simulado). Reemplaza esta función por tu lógica de guardado.')
   form.value = {
     title: '',
     description: '',
@@ -112,6 +114,7 @@ function handleSubmit() {
   }
   imagePreviews.value = []
   videoPreviews.value = []
+  router.push('/evento-creado')
 }
 </script>
 
