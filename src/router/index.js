@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TheWelcome from '@/components/TheWelcome.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
-import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
+import Calendar from '../components/pantalles_calendar/Calendar.vue'
 
 const routes = [
-  { path: '/', component: TheWelcome },
-  { path: '/hello-world', component: HelloWorld },
-  { path: '/project/:id/multimedia', component: ProjectMultimedia }
+  {
+    path: '/',
+    name: 'Calendar',
+    component: Calendar,
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router
