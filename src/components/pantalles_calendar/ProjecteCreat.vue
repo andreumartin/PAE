@@ -18,7 +18,7 @@
             <p>{{ event.extra }}</p>
           </div>
           <div style="height: 2.5rem;"></div>
-          <button class="edit-btn" @click="router.push('/crear-evento')">Editar evento</button>
+          <button class="edit-btn" @click="navegarAEdicion">Editar evento</button>
         </div>
         <div class="event-media">
           <div v-if="event.images && event.images.length" class="media-gallery">
@@ -40,14 +40,16 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-// Simulación de datos de evento (en producción, recibirías esto por props o store)
+import { useRouter, useRoute } from 'vue-router'
+import { ref, onMounted } from 'vue'
+
 function formatDate(dateStr) {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   return d.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
-const event = {
+
+const event = ref({
   title: 'Concierto de Primavera',
   description: '¡Ven a disfrutar de la mejor música en vivo con artistas internacionales y un ambiente único! No te pierdas este gran evento musical.',
   start: '2025-05-10T20:00',
@@ -59,10 +61,30 @@ const event = {
     'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80'
   ],
   videos: [
-    'https://videos.pexels.com/video-files/1679644/1679644-hd_1920_1080_25fps.mp4' // Vídeo musical de concierto
+    'https://videos.pexels.com/video-files/1679644/1679644-hd_1920_1080_25fps.mp4'
   ]
-}
+})
+
 const router = useRouter()
+const route = useRoute()
+
+onMounted(() => {
+  if (route.params.evento) {
+    try {
+      const eventoData = JSON.parse(route.params.evento)
+      event.value = eventoData
+    } catch (error) {
+      console.error('Error al parsear los datos del evento:', error)
+    }
+  }
+})
+
+const navegarAEdicion = () => {
+  router.push({
+    name: 'editar-evento',
+    params: { evento: JSON.stringify(event.value) }
+  })
+}
 </script>
 
 <style scoped>
