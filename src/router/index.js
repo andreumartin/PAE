@@ -5,6 +5,7 @@ import ProjecteCreat from '../components/pantalles_calendar/ProjecteCreat.vue'
 import PantallaEditarCreat from '../components/pantalles_calendar/PantallaEditarCreat.vue'
 import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
 import dashboard from '../components/dashboard/dashboard.vue'
+import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/sugerencias', 
     name: 'SugerenciasMultimedia',
     component: SugerenciasMultimedia
+  },
+  {
+    path: '/project/1/multimedia',
+    name: 'Multimedia',
+    component: ProjectMultimedia
   }
 ]
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Multimedia</h1>
+    <h1 class="title">Mis Archivos Multimedia</h1>
     <ul class="list">
       <li v-for="item in multimediaItems" :key="item.id">
         <div class="item">
@@ -10,7 +10,6 @@
           </div>
           <div @dblclick="editName(item)" v-text="item.name"></div>
           <div class="actions">
-            <button @click="goToOtherScreen(item)">Pedir consejo</button>
             <button @click="downloadFile(item)">Descargar</button>
             <button @click="openInEditor(item)">Editar</button>
             <button @click="deleteFile(item)">Eliminar</button>
@@ -18,7 +17,9 @@
         </div>
       </li>
     </ul>
-    <button @click="uploadFile" style="margin-top: 20px;">Subir archivo nuevo</button>
+    <button @click="$refs.fileInput.click()">Subir archivo</button>
+    <input type="file" ref="fileInput" @change="uploadFile($event)" style="display: none;">
+    <button @click="goToOtherScreen(item)">Pedir consejo</button>
   </div>
 </template>
 
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     goToOtherScreen(item) {
-      this.$router.push({ name: 'Sugerencias' });
+      this.$router.push({ name: 'SugerenciasMultimedia' });
     },
     downloadFile(item) {
       const fileUrl = item.url;
@@ -62,15 +63,14 @@ export default {
         item.name = newName;
       }
     },
-    uploadFile() {
-      const newFile = {
-        id: 4,
-        name: 'Archivo nuevo',
-        url: 'https://example.com/archivo-nuevo.png',
-        type: 'image'
+    uploadFile(event) {
+      const file = event.target.files[0];
+      const newItem = {
+        name: file.name,
+        type: file.type,
+        size: file.size
       };
-
-      this.multimediaItems.push(newFile);
+      this.multimediaItems.push(newItem);
     }
   }
 }
@@ -78,7 +78,7 @@ export default {
 
 <style scoped>
 .container {
-  width: 1200px;
+  width: 100%;
   margin: 40px auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -104,6 +104,7 @@ export default {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   justify-content: space-between;
+  margin: 5px 0px 5px 0px;
 }
 
 .icon {
@@ -124,6 +125,7 @@ export default {
   margin-left: auto;
 }
 
+
 button {
   background-color: #4F8EF7;
   color: #fff;
@@ -131,6 +133,7 @@ button {
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
+  margin: 10px 0px 10px 0px;
 }
 
 button:hover {
