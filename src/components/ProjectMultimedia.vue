@@ -1,37 +1,139 @@
-<script setup>
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-const projectId = route.params.id
-</script>
-
 <template>
-  <div class="greetings">
-    <h1>Multimedia del proyecto: {{ projectId }}</h1>
+  <div class="container">
+    <h1 class="title">Multimedia</h1>
+    <ul class="list">
+      <li v-for="item in multimediaItems" :key="item.id">
+        <div class="item">
+          <div class="icon">
+            <span v-if="item.type === 'image'"> 🖼️ </span>
+            <span v-else-if="item.type === 'video'"> 🎬 </span>
+          </div>
+          <div @dblclick="editName(item)" v-text="item.name"></div>
+          <div class="actions">
+            <button @click="goToOtherScreen(item)">Pedir consejo</button>
+            <button @click="downloadFile(item)">Descargar</button>
+            <button @click="openInEditor(item)">Editar</button>
+            <button @click="deleteFile(item)">Eliminar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button @click="uploadFile" style="margin-top: 20px;">Subir archivo nuevo</button>
   </div>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
+<script>
+export default {
+  data() {
+    return {
+      multimediaItems: [
+        { id: 1, type: 'image', name: 'folleto-promocional.png', url: 'https://example.com/image1.png' },
+        { id: 2, type: 'video', name: 'trailer-video.mp4', url: 'https://example.com/video1.mp4' },
+        { id: 3, type: 'image', name: 'cartel-publicitario.png', url: 'https://example.com/image2.png' },
+        // ...
+      ]
+    }
+  },
+  methods: {
+    goToOtherScreen(item) {
+      this.$router.push({ name: 'Sugerencias' });
+    },
+    downloadFile(item) {
+      const fileUrl = item.url;
+      const fileName = item.name;
 
-h3 {
-  font-size: 1.2rem;
-}
+      const a = document.createElement('a');
+      a.href = fileUrl;
+      a.download = fileName;
+      a.click();
+    },
+    openInEditor(item) {
+      window.open('https://www.canva.com/', '_blank');
+    },
+    deleteFile(item) {
+      const index = this.multimediaItems.indexOf(item);
+      if (index !== -1) {
+        this.multimediaItems.splice(index, 1);
+      }
+    },
+    editName(item) {
+      const newName = prompt('Ingrese el nuevo nombre del archivo:', item.name);
+      if (newName) {
+        item.name = newName;
+      }
+    },
+    uploadFile() {
+      const newFile = {
+        id: 4,
+        name: 'Archivo nuevo',
+        url: 'https://example.com/archivo-nuevo.png',
+        type: 'image'
+      };
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+      this.multimediaItems.push(newFile);
+    }
   }
+}
+</script>
+
+<style scoped>
+.container {
+  width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.actions {
+  font-size: 14px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+button {
+  background-color: #4F8EF7;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3F7CEB;
 }
 </style>
