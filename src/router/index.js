@@ -1,17 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import TheWelcome from '@/components/TheWelcome.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
-import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
+import Calendar from '../components/pantalles_calendar/Calendar.vue'
+import FormCrearProjectes from '../components/pantalles_calendar/FormCrearProjectes.vue'
+import ProjecteCreat from '../components/pantalles_calendar/ProjecteCreat.vue'
+import PantallaEditarCreat from '../components/pantalles_calendar/PantallaEditarCreat.vue'
+import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
+import dashboard from '../components/dashboard/dashboard.vue'
 
 const routes = [
-  { path: '/', component: TheWelcome },
-  { path: '/hello-world', component: HelloWorld },
-  { path: '/project/:id/multimedia', component: ProjectMultimedia }
+  {
+    path: '/',
+    name: 'Home',
+    component: dashboard,
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar,
+  },
+  {
+    path: '/crear-evento',
+    name: 'CrearEvento',
+    component: FormCrearProjectes,
+  },
+  {
+    path: '/evento-creado',
+    name: 'EventoCreado',
+    component: ProjecteCreat,
+  },
+  {
+    path: '/editar-evento/:evento',
+    name: 'editar-evento',
+    component: PantallaEditarCreat,
+  },
+  { 
+    path: '/sugerencias', 
+    name: 'SugerenciasMultimedia',
+    component: SugerenciasMultimedia
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 export default router
