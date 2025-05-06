@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const showSidebar = ref(false)
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value
@@ -12,6 +14,14 @@ const userEvents = ref([
   { id: 2, title: 'Quedada gamer', date: '2025-06-20', location: 'Madrid' },
   { id: 3, title: 'Startups de Valencia', date: '2025-06-25', location: 'Valencia' }
 ])
+
+const navigateToCreateEvent = () => {
+  router.push('/crear-evento')
+}
+
+const navigateToCalendar = () => {
+  router.push('/calendar')
+}
 </script>
 
 <template>
@@ -26,7 +36,7 @@ const userEvents = ref([
         <ul>
           <li><a href="#">Dashboard</a></li>
           <li><a href="#">Mis Eventos</a></li>
-          <li><a href="#">Calendario</a></li>
+          <li><a href="/calendar">Calendario</a></li>
           <li><a href="#">Configuración</a></li>
         </ul>
       </nav>
@@ -73,7 +83,7 @@ const userEvents = ref([
           </div>
           
           <!-- Create Event Button (moved to bottom) -->
-          <button class="create-btn">Crear Evento</button>
+          <button class="create-btn" @click="navigateToCreateEvent">Crear Evento</button>
         </div>
       </main>
     </div>
