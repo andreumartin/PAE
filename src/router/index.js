@@ -4,10 +4,16 @@ import FormCrearProjectes from '../components/pantalles_calendar/FormCrearProjec
 import ProjecteCreat from '../components/pantalles_calendar/ProjecteCreat.vue'
 import PantallaEditarCreat from '../components/pantalles_calendar/PantallaEditarCreat.vue'
 import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
+import dashboard from '../components/dashboard/dashboard.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    component: dashboard,
+  },
+  {
+    path: '/calendar',
     name: 'Calendar',
     component: Calendar,
   },
