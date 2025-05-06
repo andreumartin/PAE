@@ -10,6 +10,10 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
 </script>
 
 <template>
+  <nav>
+    <router-link to="/project/1/multimedia">ProjectMultimedia</router-link>
+  </nav>
+
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
