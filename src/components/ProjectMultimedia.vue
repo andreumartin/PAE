@@ -65,10 +65,15 @@ export default {
     },
     uploadFile(event) {
       const file = event.target.files[0];
+      var fileType = file.type;
+      if (fileType.startsWith('image/')) {
+        fileType = 'image';
+      } else if (fileType.startsWith('video/')) {
+        fileType = 'video';
+      }
       const newItem = {
         name: file.name,
-        type: file.type,
-        size: file.size
+        type: fileType,
       };
       this.multimediaItems.push(newItem);
     }
