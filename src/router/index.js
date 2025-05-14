@@ -6,6 +6,7 @@ import PantallaEditarCreat from '../components/pantalles_calendar/PantallaEditar
 import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
 import dashboard from '../components/dashboard/dashboard.vue'
 import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
+import Analytics from '../components/analiticas/analiticas.vue'
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: '/calendar',
     name: 'Calendar',
     component: Calendar,
+  },
+  {
+    path: '/analytics',
+    name: 'Analytics',
+    component: Analytics,
   },
   {
     path: '/crear-evento',
