@@ -15,6 +15,11 @@ const routes = [
     component: dashboard,
   },
   {
+    path: '/preview',
+    name: 'Preview',
+    component: () => import('../components/preview/preview.vue'),
+  },
+  {
     path: '/calendar',
     name: 'Calendar',
     component: Calendar,
