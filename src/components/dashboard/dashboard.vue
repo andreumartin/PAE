@@ -2,12 +2,6 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const showSidebar = ref(false)
-const toggleSidebar = () => {
-  showSidebar.value = !showSidebar.value
-}
-
 // Mock data for user events
 const userEvents = ref([
   { id: 1, title: 'Conferencia', date: '2025-06-15', location: 'Barcelona' },
@@ -26,37 +20,10 @@ const navigateToCalendar = () => {
 
 <template>
   <div class="dashboard-container">
-    <!-- Sidebar -->
-    <aside class="sidebar" :class="{ 'sidebar-open': showSidebar }">
-      <div class="sidebar-header">
-        <h2>Menu</h2>
-        <button class="close-btn" @click="toggleSidebar">&times;</button>
-      </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="/calendar">Calendario</a></li>
-          <li><a href="/analytics">Analiticas</a></li>
-        </ul>
-      </nav>
-    </aside>
     
     <!-- Main Content Area -->
     <div class="main-layout">
       <!-- Top Header -->
-      <header class="top-header">
-        <div class="top-element">
-          <button class="menu-btn" @click="toggleSidebar">
-            <span class="menu-icon"></span>
-          </button>
-        </div>
-        <div class="logo-container">
-          <span class="app-logo">UX TECH SOLUTIONS</span>
-        </div>
-        <div class="top-element">
-          <button class="account-btn">CUENTA</button>
-        </div>
-      </header>
       
       <!-- Dashboard Content -->
       <main class="dashboard-content">
