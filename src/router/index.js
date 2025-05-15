@@ -7,6 +7,8 @@ import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
 import dashboard from '../components/dashboard/dashboard.vue'
 import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
 import Analytics from '../components/analiticas/analiticas.vue'
+import Networking from '@/views/Networking.vue'
+import PlanificacionEvento from '@/views/PlanificacionEvento.vue'
 
 const routes = [
   {
@@ -53,6 +55,16 @@ const routes = [
     path: '/project/1/multimedia',
     name: 'Multimedia',
     component: ProjectMultimedia
+  },
+  {
+    path: '/networking',
+    name: 'Networking',
+    component: Networking
+  },
+  {
+    path: '/planificacion',
+    name: 'PlanificacionEvento',
+    component: PlanificacionEvento
   }
 ]
 

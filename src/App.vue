@@ -10,7 +10,9 @@
 		<router-link to="/">Home</router-link> |
 		<router-link to="/calendar">Calendar</router-link> |
 		<router-link to="/project/1/multimedia">ProjectMultimedia</router-link> |
-		<router-link to="/sugerencias">Sugerencias Multimedia</router-link>
+		<router-link to="/sugerencias">Sugerencias Multimedia</router-link> |
+		<router-link to="/networking">Networking</router-link> |
+		<router-link to="/planificacion">Planificación de Eventos</router-link> |
 	  </nav>
   
 	  <div class="flex-1 overflow-hidden">
