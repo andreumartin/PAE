@@ -35,9 +35,8 @@ const navigateToCalendar = () => {
       <nav class="sidebar-nav">
         <ul>
           <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Mis Eventos</a></li>
           <li><a href="/calendar">Calendario</a></li>
-          <li><a href="#">Configuración</a></li>
+          <li><a href="/analytics">Analiticas</a></li>
         </ul>
       </nav>
     </aside>
