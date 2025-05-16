@@ -80,6 +80,7 @@ const routes = [
     name: 'Finance',
     component: Finance
   },
+  {
     path: '/networking',
     name: 'Networking',
     component: Networking
