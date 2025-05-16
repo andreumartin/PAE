@@ -9,8 +9,12 @@
 	  <nav class="p-4 bg-gray-100 border-b">
 		<router-link to="/">Home</router-link> |
 		<router-link to="/calendar">Calendar</router-link> |
+		<router-link to="/sugerencias">Sugerencias Multimedia</router-link> |
+		<router-link to="/project/1">Project</router-link> |
+		<router-link to="/project/1/to-do">To-Do</router-link> |
 		<router-link to="/project/1/multimedia">ProjectMultimedia</router-link> |
-		<router-link to="/sugerencias">Sugerencias Multimedia</router-link>
+		<router-link to="/project/1/concept">Concept</router-link> | 
+		<router-link to="/project/1/finance">Finance</router-link>
 	  </nav>
   
 	  <div class="flex-1 overflow-hidden">

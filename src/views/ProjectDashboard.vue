@@ -8,23 +8,38 @@ const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value
 }
 
-// Mock data for user events
-const userEvents = ref([
-  { id: 1, title: 'Conferencia', date: '2025-06-15', location: 'Barcelona' },
-  { id: 2, title: 'Quedada gamer', date: '2025-06-20', location: 'Madrid' },
-  { id: 3, title: 'Startups de Valencia', date: '2025-06-25', location: 'Valencia' }
-])
-
-const navigateToCreateEvent = () => {
-  router.push('/crear-evento')
-}
-
-const navigateToCalendar = () => {
+const navigateToTimeline = () => {
   router.push('/calendar')
 }
 
-const navigateToProject = () => {
-  router.push('/project/1')
+const navigateToToDo = () => {
+  router.push('/project/1/to-do')
+}
+
+const navigateToConcept = () => {
+  router.push('/project/1/concept')
+  //window.open('https://docs.google.com/document/create', '_blank')
+}
+
+const navigateToMultimedia = () => {
+  router.push('/project/1/multimedia')
+}
+
+const navigateToFinance = () => {
+  router.push('/project/1/finance')
+}
+
+// Mock data for user elements
+const projectElements = ref([
+  { id: 1, title: 'To-Do', info: 'Done: 4\nPending: 2\nScore: 6.67', navigate: navigateToToDo },
+  { id: 2, title: 'Concept', info: 'Conferencia en Barcelona...', navigate: navigateToConcept },
+  { id: 3, title: 'Multimedia', info: 'folleto-promocional.png\ntrailer-video.mp4\n...', navigate: navigateToMultimedia },
+  { id: 4, title: 'Timeline', info: 'Proximament: Reunió marketing...', navigate: navigateToTimeline },
+  { id: 5, title: 'Finance', info: 'Budget: $1000\nCosts: $500', navigate: navigateToFinance }
+])
+
+const addEmptyElement = () => {
+  // No hace nada
 }
 </script>
 
@@ -39,8 +54,9 @@ const navigateToProject = () => {
       <nav class="sidebar-nav">
         <ul>
           <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Mis Eventos</a></li>
           <li><a href="/calendar">Calendario</a></li>
-          <li><a href="/analytics">Analiticas</a></li>
+          <li><a href="#">Configuración</a></li>
         </ul>
       </nav>
     </aside>
@@ -66,34 +82,33 @@ const navigateToProject = () => {
       <main class="dashboard-content">
         <div class="content-header">
           <p></p>
-          <h1>Mis Eventos</h1>
+          <h1>Project 1</h1>
           <p></p>
         </div>
         
         <!-- Event List -->
-        <div class="event-list">
-          <div v-if="userEvents.length === 0" class="empty-state">
-            No events found. Create your first event!
+        <div class="element-list">
+          <div v-if="projectElements.length === 0" class="empty-state">
+            No elements found. Create your first element!
           </div>
-          <div v-else class="event-cards">
-            <div v-for="event in userEvents" :key="event.id" class="event-card" @click="navigateToProject">
-              <h3>{{ event.title }}</h3>
-              <div class="event-details">
-                <p><strong>Fecha:</strong> {{ event.date }}</p>
-                <p><strong>Localización:</strong> {{ event.location }}</p>
+          <div v-else class="element-cards">
+            <div v-for="element in projectElements" :key="element.id" class="element-card" @click="element.navigate">
+              <h3>{{ element.title }}</h3>
+              <div class="element-details pre-line">
+                <p>{{ element.info }}</p>
               </div>
             </div>
           </div>
           
           <!-- Create Event Button (moved to bottom) -->
-          <button class="create-btn" @click="navigateToCreateEvent">Crear Evento</button>
+          <button class="create-btn" @click="addEmptyElement">Añadir Elemento en Blanco</button>
         </div>
       </main>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 /* Reset margins and paddings to override main.css */
 #app {
   max-width: none !important;
@@ -124,9 +139,7 @@ body, html {
   --border-radius: 12px;
   --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
-</style>
 
-<style scoped>
 .dashboard-container {
   display: flex;
   width: 100%;
@@ -332,7 +345,7 @@ body, html {
 }
 
 /* Event List */
-.event-list {
+.element-list {
   width: 100%;
 }
 
@@ -346,13 +359,14 @@ body, html {
   font-size: 1.1rem;
 }
 
-.event-cards {
+.element-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /* aquí pones el número fijo de columnas */
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
-.event-card {
+.element-card {
   padding: 1.8rem;
   border-radius: var(--border-radius);
   border: none;
@@ -608,7 +622,7 @@ body, html {
 }
 
 /* Event List */
-.event-list {
+.element-list {
   width: 100%;
   max-width: 700px; /* Limit column width for better readability */
   margin: 0 auto;
@@ -627,14 +641,7 @@ body, html {
   margin-bottom: 2rem;
 }
 
-.event-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.event-card {
+.element-card {
   padding: 1.8rem;
   border-radius: var(--border-radius);
   border: none;
@@ -676,11 +683,11 @@ body, html {
   box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
 }
 
-.event-details {
+.element-details {
   margin: 1rem 0;
 }
 
-.event-actions {
+.element-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
@@ -692,5 +699,9 @@ body, html {
   border: 1px solid var(--color-border);
   border-radius: 4px;
   cursor: pointer;
+}
+
+.pre-line p {
+  white-space: pre-line;
 }
 </style>
