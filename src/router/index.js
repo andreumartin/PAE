@@ -10,6 +10,9 @@ import ProjectDashboard from '@/views/ProjectDashboard.vue'
 import To_Do from '@/views/To-Do.vue'
 import Concept from '@/views/Concept.vue'
 import Finance from '@/views/Finance.vue'
+import Analytics from '../components/analiticas/analiticas.vue'
+import Networking from '@/views/Networking.vue'
+import PlanificacionEvento from '@/views/PlanificacionEvento.vue'
 
 const routes = [
   {
@@ -18,9 +21,19 @@ const routes = [
     component: dashboard,
   },
   {
+    path: '/preview',
+    name: 'Preview',
+    component: () => import('../components/preview/preview.vue'),
+  },
+  {
     path: '/calendar',
     name: 'Calendar',
     component: Calendar,
+  },
+  {
+    path: '/analytics',
+    name: 'Analytics',
+    component: Analytics,
   },
   {
     path: '/crear-evento',
@@ -66,6 +79,15 @@ const routes = [
     path: '/project/1/finance',
     name: 'Finance',
     component: Finance
+  },
+    path: '/networking',
+    name: 'Networking',
+    component: Networking
+  },
+  {
+    path: '/planificacion',
+    name: 'PlanificacionEvento',
+    component: PlanificacionEvento
   }
 ]
 
