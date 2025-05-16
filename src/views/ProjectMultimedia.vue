@@ -17,9 +17,12 @@
         </div>
       </li>
     </ul>
-    <button @click="$refs.fileInput.click()">Subir archivo</button>
-    <input type="file" ref="fileInput" @change="uploadFile($event)" style="display: none;">
-    <button @click="goToOtherScreen(item)">Pedir consejo</button>
+    <div style="display: flex;">
+      <button style="margin-left:10px" @click="$refs.fileInput.click()">Subir archivo</button>
+      <input type="file" ref="fileInput" @change="uploadFile($event)" style="display: none;">
+      <button @click="goToSugerenciasMultimedia(item)">Pedir consejo</button>
+      <button style="margin-left:auto; margin-right:10px" @click="goToProjectDashboard(item)">Volver atrás</button>
+    </div>
   </div>
 </template>
 
@@ -36,8 +39,11 @@ export default {
     }
   },
   methods: {
-    goToOtherScreen(item) {
+    goToSugerenciasMultimedia(item) {
       this.$router.push({ name: 'SugerenciasMultimedia' });
+    },
+    goToProjectDashboard(item) {
+      this.$router.push({ name: 'ProjectDashboard' });
     },
     downloadFile(item) {
       const fileUrl = item.url;

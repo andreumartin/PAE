@@ -5,7 +5,11 @@ import ProjecteCreat from '../components/pantalles_calendar/ProjecteCreat.vue'
 import PantallaEditarCreat from '../components/pantalles_calendar/PantallaEditarCreat.vue'
 import SugerenciasMultimedia from '@/views/SugerenciasMultimedia.vue'
 import dashboard from '../components/dashboard/dashboard.vue'
-import ProjectMultimedia from '@/components/ProjectMultimedia.vue'
+import ProjectMultimedia from '@/views/ProjectMultimedia.vue'
+import ProjectDashboard from '@/views/ProjectDashboard.vue'
+import To_Do from '@/views/To-Do.vue'
+import Concept from '@/views/Concept.vue'
+import Finance from '@/views/Finance.vue'
 
 const routes = [
   {
@@ -39,9 +43,29 @@ const routes = [
     component: SugerenciasMultimedia
   },
   {
+    path: '/project/1',
+    name: 'ProjectDashboard',
+    component: ProjectDashboard
+  },
+  {
+    path: '/project/1/to-do',
+    name: 'To-Do',
+    component: To_Do
+  },
+  {
+    path: '/project/1/concept',
+    name: 'Concept',
+    component: Concept
+  },
+  {
     path: '/project/1/multimedia',
     name: 'Multimedia',
     component: ProjectMultimedia
+  },
+  {
+    path: '/project/1/finance',
+    name: 'Finance',
+    component: Finance
   }
 ]
 
