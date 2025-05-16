@@ -158,7 +158,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .todo-list {
   max-width: 800px;
   margin: 40px auto;
