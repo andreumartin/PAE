@@ -79,7 +79,6 @@ watch(search, (newValue) => {
   align-items: center;
   justify-content: flex-start;
   background: #f7f7fa;
-  padding-top: 40px;
 }
 
 .search-bar {

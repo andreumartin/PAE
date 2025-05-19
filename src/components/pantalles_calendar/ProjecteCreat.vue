@@ -18,7 +18,7 @@
             <p>{{ event.extra }}</p>
           </div>
           <div style="height: 2.5rem;"></div>
-          <button class="edit-btn" @click="navegarAEdicion">Editar evento</button>
+          <button class="button" @click="navegarAEdicion">Editar evento</button>
         </div>
         <div class="event-media">
           <div v-if="event.images && event.images.length" class="media-gallery">

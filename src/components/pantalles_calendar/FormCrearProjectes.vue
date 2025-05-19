@@ -51,7 +51,7 @@
         </div>
       </div>
     </form>
-    <button type="submit" class="submit-btn" @click="handleSubmit">Crear evento</button>
+    <button type="submit" class="button" @click="handleSubmit">Crear evento</button>
   </div>
 </template>
 

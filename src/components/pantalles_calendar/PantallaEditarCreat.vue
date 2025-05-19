@@ -25,8 +25,8 @@
           </div>
           <div style="height: 2.5rem;"></div>
           <div class="button-group">
-            <button class="edit-btn save-btn" @click="guardarCambios">Guardar cambios</button>
-            <button class="edit-btn cancel-btn" @click="router.push('/crear-evento')">Cancelar</button>
+            <button class="button" @click="guardarCambios">Guardar cambios</button>
+            <button class="button" @click="router.push('/crear-evento')">Cancelar</button>
           </div>
         </div>
         <div class="event-media">
@@ -41,7 +41,7 @@
               </div>
               <div class="media-upload">
                 <input type="file" accept="image/*" @change="agregarImagen" class="file-input" />
-                <button class="media-btn upload-btn">+ Añadir imagen</button>
+                <button class="button">+ Añadir imagen</button>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
               </div>
               <div class="media-upload">
                 <input type="file" accept="video/*" @change="agregarVideo" class="file-input" />
-                <button class="media-btn upload-btn">+ Añadir video</button>
+                <button class="button">+ Añadir video</button>
               </div>
             </div>
           </div>

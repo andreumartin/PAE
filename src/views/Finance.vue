@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header">
       <h2>Balance</h2>
-      <p>{{ balance }}</p>
+      <strong>{{ balance }}</strong>
     </div>
     <div class="columns">
       <div class="column left">
@@ -10,7 +10,7 @@
         <ul>
           <li v-for="cost in costs" :key="cost.id">{{ cost.name }} ({{ cost.amount }})</li>
         </ul>
-        <button @click="addCost">Añadir coste</button>
+        <button class="button" @click="addCost">Añadir coste</button>
       </div>
       <div class="column right">
         <h3>Fondos disponibles</h3>
@@ -18,8 +18,8 @@
           <li v-for="fund in funds" :key="fund.id">{{ fund.name }} ({{ fund.amount }})</li>
         </ul>
         <div class="button-container">
-          <button @click="addFund">Añadir fondo</button>
-          <button @click="searchSponsors">Buscar patrocinadores</button>
+          <button class="button" @click="addFund">Añadir fondo</button>
+          <button class="button" @click="searchSponsors">Buscar patrocinadores</button>
         </div>
       </div>
     </div>
@@ -61,78 +61,48 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
 
-.header {
-  width: 100%;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-}
+	.columns {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	width: 100%;
+	}
 
-.columns {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  width: 100%;
-}
+	.column {
+	width: 50%;
+	background-color: #f9f9f9;
+	padding: 10px;
+	border: 1px solid #ccc;
+	height: 300px;
+	overflow-y: auto;
+	border-radius: 10px;
+	}
 
-.column {
-  width: 50%;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ccc;
-  height: 300px;
-  overflow-y: auto;
-}
+	.column h3 {
+	text-align: center;
+	}
 
-.column h3 {
-  text-align: center;
-}
+	.left {
+	margin-right: 10px;
+	}
 
-.left {
-  margin-right: 10px;
-}
+	.right {
+	margin-left: 10px;
+	}
 
-.right {
-  margin-left: 10px;
-}
+	ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	}
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+	li {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	}
 
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-button {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3e8e41;
-}
-
-.button-container button {
-  margin: 0 10px 0px 0px;
-}
+	li:last-child {
+	border-bottom: none;
+	}
 </style>
