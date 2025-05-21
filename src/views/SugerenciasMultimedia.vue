@@ -1,12 +1,12 @@
 ﻿<template>
-  <div style="display: flex; flex-direction: column; width: 100vw; height: 100vh; font-family: sans-serif;">
+  <div style="flex-direction: column; font-family: sans-serif;">
     <!-- Header -->
-    <header style="background-color: #4f46e5; color: white; padding: 1rem; font-size: 1.25rem; font-weight: bold;">
+    <header style="color: #23408e; padding: 1rem; font-size: 1.25rem; font-weight: bold;">
       Multimedia Assistant
     </header>
 
     <!-- Chat area -->
-    <div ref="chatContainer" style="flex: 1; overflow-y: auto; padding: 1rem; background-color: #f3f4f6;">
+    <div ref="chatContainer" style="flex: 1; overflow-y: auto; padding: 1rem;">
       <div
         v-for="(msg, i) in messages"
         :key="i"
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Input -->
-    <footer style="padding: 1rem; border-top: 1px solid #ccc; display: flex; gap: 0.5rem; align-items: center;">
+    <footer style="padding: 1rem; display: flex; gap: 0.5rem; align-items: center;">
       <input
         v-model="input"
         @keyup.enter="sendMessage"
@@ -48,8 +48,8 @@
         style="flex: 1; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.5rem;"
       />
       <input type="file" @change="handleUpload" style="display: none;" ref="fileInput" />
-      <button @click="$refs.fileInput.click()" style="padding: 0.5rem; border-radius: 0.5rem;">📎</button>
-      <button @click="sendMessage" style="background-color: #4f46e5; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem;">Send</button>
+      <button class="button" @click="$refs.fileInput.click()" style="padding: 0.5rem; border-radius: 0.5rem;">📎</button>
+      <button class="button" @click="sendMessage" style="background-color: #4f46e5; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem;">Send</button>
     </footer>
   </div>
 </template>

@@ -2,24 +2,24 @@
   <div class="container">
     <div class="header">
       <h2>Balance</h2>
-      <p>{{ balance }}</p>
+      <strong class="balance">{{ balance }}€</strong>
     </div>
     <div class="columns">
-      <div class="column left">
+      <div class="column card">
         <h3>Costes</h3>
         <ul>
-          <li v-for="cost in costs" :key="cost.id">{{ cost.name }} ({{ cost.amount }})</li>
+          <li v-for="cost in costs" :key="cost.id">{{ cost.name }} ({{ cost.amount }}€)</li>
         </ul>
-        <button @click="addCost">Añadir coste</button>
+        <button class="button" @click="addCost">➕ Añadir coste</button>
       </div>
-      <div class="column right">
+      <div class="column card">
         <h3>Fondos disponibles</h3>
         <ul>
-          <li v-for="fund in funds" :key="fund.id">{{ fund.name }} ({{ fund.amount }})</li>
+          <li v-for="fund in funds" :key="fund.id">{{ fund.name }} ({{ fund.amount }}€)</li>
         </ul>
         <div class="button-container">
-          <button @click="addFund">Añadir fondo</button>
-          <button @click="searchSponsors">Buscar patrocinadores</button>
+          <button class="button" @click="addFund">➕ Añadir fondo</button>
+          <button class="button alt" @click="searchSponsors">🔍 Buscar patrocinadores</button>
         </div>
       </div>
     </div>
@@ -55,6 +55,9 @@ export default {
     },
     addFund() {
       // código para agregar un nuevo fondo
+    },
+    searchSponsors() {
+      // código para buscar patrocinadores
     }
   }
 }
@@ -62,77 +65,104 @@ export default {
 
 <style scoped>
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .header {
-  width: 100%;
-  background-color: #f0f0f0;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.balance {
+  font-size: 24px;
+  color: #3b82f6;
+  margin-top: 8px;
+  display: inline-block;
 }
 
 .columns {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .column {
-  width: 50%;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ccc;
-  height: 300px;
-  overflow-y: auto;
+  flex: 1;
+  min-width: 300px;
 }
 
-.column h3 {
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
   text-align: center;
-}
-
-.left {
-  margin-right: 10px;
-}
-
-.right {
-  margin-left: 10px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #111827;
 }
 
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 12px;
 }
 
 li {
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 li:last-child {
   border-bottom: none;
 }
 
-button {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
+.button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background-color: #3b82f6;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-button:hover {
-  background-color: #3e8e41;
+.button:hover {
+  background-color: #2563eb;
 }
 
-.button-container button {
-  margin: 0 10px 0px 0px;
+.button.alt {
+  background-color: #10b981;
+  margin-top: 8px;
+}
+
+.button.alt:hover {
+  background-color: #059669;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
 }
 </style>

@@ -13,15 +13,15 @@
             <div class="task-container">
                 <input type="checkbox" v-model="task.done" />
                 <span :class="{ done: task.done }">{{ task.text }}</span>
-                <button @click="removeTask(section, task.id)" class="delete-task-button">Eliminar</button>
+                <button @click="removeTask(section, task.id)" class="button">Eliminar</button>
             </div>
           </li>
         </ul>
-        <button @click="showAddTaskPopup = true; currentSection = section">Agregar tarea</button>
-        <button @click="removeSection(index)">Eliminar sección</button>
+        <button class="button" @click="showAddTaskPopup = true; currentSection = section">Agregar tarea</button>
+        <button class="button" @click="removeSection(index)">Eliminar sección</button>
       </li>
     </ul>
-    <button @click="showAddSectionPopup = true">Agregar sección</button>
+    <button class="button" @click="showAddSectionPopup = true">Agregar sección</button>
 
     <div v-if="showAddSectionPopup || showAddTaskPopup ||showEditSectionNamePopup" class="popup-background"></div>
 
@@ -29,24 +29,24 @@
     <div v-if="showEditSectionNamePopup" class="popup">
       <h2>Cambiar nombre de la sección</h2>
       <input type="text" v-model="newSectionName" placeholder="Nuevo nombre de la sección" />
-      <button @click="updateSectionName">Guardar</button>
-      <button @click="showEditSectionNamePopup = false">Cancelar</button>
+      <button class="button" @click="updateSectionName">Guardar</button>
+      <button class="button" @click="showEditSectionNamePopup = false">Cancelar</button>
     </div>
 
     <!-- Popup para agregar sección -->
     <div v-if="showAddSectionPopup" class="popup">
       <h2>Agregar sección</h2>
       <input type="text" v-model="newSectionName" placeholder="Nombre de la sección" />
-      <button @click="addSection">Agregar</button>
-      <button @click="showAddSectionPopup = false">Cancelar</button>
+      <button class="button" @click="addSection">Agregar</button>
+      <button class="button" @click="showAddSectionPopup = false">Cancelar</button>
     </div>
 
     <!-- Popup para agregar tarea -->
     <div v-if="showAddTaskPopup" class="popup">
       <h2>Agregar tarea</h2>
       <input type="text" v-model="newTaskText" placeholder="Nombre de la tarea" />
-      <button @click="addTask">Agregar</button>
-      <button @click="showAddTaskPopup = false">Cancelar</button>
+      <button class="button" @click="addTask">Agregar</button>
+      <button class="button" @click="showAddTaskPopup = false">Cancelar</button>
     </div>
   </div>
 </template>
@@ -157,156 +157,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.todo-list {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.todo-list h1 {
-  margin-top: 0;
-}
-
-.todo-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.todo-list li {
-  margin-bottom: 10px;
-}
-
-.todo-list input[type="checkbox"] {
-  margin-right: 10px;
-}
-
-.todo-list .done {
-  text-decoration: line-through;
-}
-
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.popup-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-.popup h2 {
-  margin-top: 0;
-}
-
-.popup input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-}
-
-.popup button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.popup button:hover {
-  background-color: #3e8e41;
-}
-
-.button delete-task-button {
-  margin-left: auto;
-}
-
-.task-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 30px;
-}
-
-.task-container input[type="checkbox"] {
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
-.task-container span {
-  flex-grow: 1;
-  line-height: 30px;
-  vertical-align: middle;
-}
-
-.task-container .delete-task-button {
-  vertical-align: middle;
-}
-
-.progress-container {
-  display: flex;
-  align-items: center;
-}
-
-progress {
-  width: 80%;
-  height: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #ccc;
-}
-
-.progress-lowest::-webkit-progress-value {
-  background-color: #FF0000;
-}
-
-.progress-low::-webkit-progress-value {
-  background-color: #ff7300;
-}
-
-.progress-medium::-webkit-progress-value {
-  background-color: #ffdd00;
-}
-
-.progress-high::-webkit-progress-value {
-  background-color: #9dff00;
-}
-
-.progress-highest::-webkit-progress-value {
-  background-color: #00FF00;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #ccc;
-}
-
-progress::-webkit-progress-value {
-  background-color: #4CAF50;
-}
-
-.score {
-  margin-left: 10px;
-  font-weight: bold;
-}
-</style>

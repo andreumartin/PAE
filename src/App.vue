@@ -1,60 +1,60 @@
 <script setup="">
-	import { createRouter } from 'vue-router'
-	import HelloWorld from './components/HelloWorld.vue'
-	import TheWelcome from './components/TheWelcome.vue'
+	import { ref } from 'vue'
+
+	const sidebarOpen = ref(false)
+
+	function toggleSidebar() {
+	sidebarOpen.value = !sidebarOpen.value
+	}
 </script>
 
 <template>
-	<div class="w-screen h-screen flex flex-col">
-	  <nav class="p-4 bg-gray-100 border-b">
-		<router-link to="/">Home</router-link> |
-		<router-link to="/calendar">Calendar</router-link> |
-		<router-link to="/sugerencias">Sugerencias Multimedia</router-link> |
-		<router-link to="/project/1">Project</router-link> |
-		<router-link to="/project/1/to-do">To-Do</router-link> |
-		<router-link to="/project/1/multimedia">ProjectMultimedia</router-link> |
-		<router-link to="/project/1/concept">Concept</router-link> | 
-		<router-link to="/project/1/finance">Finance</router-link>
-	  </nav>
-  
-	  <div class="flex-1 overflow-hidden">
-		<router-view />
-	  </div>
+	<div class="dashboard-container">
+		<!-- Sidebar -->
+		<div :class="['sidebar', { 'sidebar-open': sidebarOpen }]">
+			<div class="sidebar-header">
+				<h2>Menú</h2>
+				<button class="close-btn" @click="toggleSidebar">×</button>
+			</div>
+			<nav class="sidebar-nav">
+				<ul>
+					<li>
+						<router-link to="/">Inicio</router-link>
+					</li>
+					<li>
+						<router-link to="/networking">Networking</router-link>
+					</li>
+					<li>
+						<router-link to="/planificacion">Planificación</router-link>
+					</li>
+					<li>
+						<router-link to="/analytics">Análisis</router-link>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<!-- Main content -->
+		<div class="main-layout">
+			<!-- Header -->
+			<header class="top-header">
+				<div class="top-element">
+					<button class="menu-btn" @click="toggleSidebar">
+						<span class="menu-icon"></span>
+					</button>
+				</div>
+				<div class="logo-container">
+					<span class="app-logo">UX TECH SOLUTIONS</span>
+				</div>
+				<div style="text-align: right;">
+					<button class="account-btn">CUENTA</button>
+				</div>
+			</header>
+
+			<!-- Routed views -->
+			<main class="dashboard-content">
+				<router-view />
+			</main>
+		</div>
 	</div>
-  </template>
-
-<style scoped="">
-	header {
-	line-height: 1.5;
-	}
-
-	.logo {
-	display: block;
-	margin: 0 auto 2rem;
-	}
-
-	@media (min-width: 1024px) {
-	header {
-	display: flex;
-	place-items: center;
-	padding-right: calc(var(--section-gap) / 2);
-	}
-
-	.logo {
-	margin: 0 2rem 0 0;
-	}
-
-	header .wrapper {
-	display: flex;
-	place-items: flex-start;
-	flex-wrap: wrap;
-	}
-	}
-</style>
-
-<style>
-	html, body, #app {
-	height: 100%;
-	margin: 0;
-	}
-</style>
+</template>

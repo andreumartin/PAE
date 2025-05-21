@@ -1,17 +1,17 @@
 <template>
-    <div style="width: 100vw; height: 100vh; display: flex; flex-direction: column; font-family: sans-serif;">
-      <header style="background-color: #4f46e5; color: white; padding: 1rem; font-size: 1.25rem;">
+    <div style="display: flex; flex-direction: column; font-family: sans-serif;">
+      <header style="color: #23408e; padding: 1rem; font-size: 1.25rem;">
         Planificación de Evento: Fecha y Recinto
       </header>
   
       <!-- Filtros -->
-      <div style="padding: 1rem; background: #f3f4f6; display: flex; gap: 1rem; align-items: center;">
+      <div style="padding: 1rem; display: flex; gap: 1rem; align-items: center;">
         <label>
           Fecha:
           <input type="date" v-model="selectedDate" />
         </label>
   
-        <label>
+        <label >
           Recinto:
           <select v-model="selectedVenue">
             <option value="">Todos</option>
@@ -19,12 +19,12 @@
           </select>
         </label>
   
-        <button @click="resetFilters" style="padding: 0.25rem 0.5rem;">Ver todo</button>
+        <button class="button" @click="resetFilters">Ver todo</button>
       </div>
   
       <!-- Resultados -->
-      <div style="flex: 1; overflow-y: auto; padding: 1rem;">
-        <h3 style="margin-bottom: 1rem;">Eventos encontrados:</h3>
+      <div style="flex: 1; overflow-y: auto;">
+        <h3 style="margin-top: 0;">Eventos encontrados:</h3>
         <div
           v-for="(event, i) in filteredEvents"
           :key="i"

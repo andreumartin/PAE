@@ -10,18 +10,18 @@
           </div>
           <div @dblclick="editName(item)" v-text="item.name"></div>
           <div class="actions">
-            <button @click="downloadFile(item)">Descargar</button>
-            <button @click="openInEditor(item)">Editar</button>
-            <button @click="deleteFile(item)">Eliminar</button>
+            <button class="button" @click="downloadFile(item)">Descargar</button>
+            <button class="button" @click="openInEditor(item)">Editar</button>
+            <button class="button" @click="deleteFile(item)">Eliminar</button>
           </div>
         </div>
       </li>
     </ul>
     <div style="display: flex;">
-      <button style="margin-left:10px" @click="$refs.fileInput.click()">Subir archivo</button>
+      <button class="button" style="margin-left:10px" @click="$refs.fileInput.click()">Subir archivo</button>
       <input type="file" ref="fileInput" @change="uploadFile($event)" style="display: none;">
-      <button @click="goToSugerenciasMultimedia(item)">Pedir consejo</button>
-      <button style="margin-left:auto; margin-right:10px" @click="goToProjectDashboard(item)">Volver atrás</button>
+      <button class="button" @click="goToSugerenciasMultimedia(item)">Pedir consejo</button>
+      <button class="button" style="margin-left:auto; margin-right:10px" @click="goToProjectDashboard(item)">Volver atrás</button>
     </div>
   </div>
 </template>
@@ -88,24 +88,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: 100%;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
 .list {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .item {
@@ -123,31 +108,11 @@ export default {
   margin-right: 10px;
 }
 
-.name {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .actions {
   font-size: 14px;
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
   margin-left: auto;
-}
-
-
-button {
-  background-color: #4F8EF7;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  margin: 10px 0px 10px 0px;
-}
-
-button:hover {
-  background-color: #3F7CEB;
 }
 </style>

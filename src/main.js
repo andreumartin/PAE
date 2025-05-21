@@ -1,4 +1,4 @@
-import './assets/main.css'
+import './assets/styles/main.css'
 import '@schedule-x/theme-default/dist/calendar.css'
 
 import { createApp } from 'vue'
