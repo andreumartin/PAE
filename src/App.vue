@@ -44,7 +44,7 @@
 					</button>
 				</div>
 				<div class="logo-container">
-					<span class="app-logo">UX TECH SOLUTIONS</span>
+					<span class="app-logo">EASYEVENTS</span>
 				</div>
 				<div style="text-align: right;">
 					<button class="account-btn">CUENTA</button>
