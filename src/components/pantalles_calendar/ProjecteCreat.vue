@@ -19,6 +19,7 @@
           </div>
           <div style="height: 2.5rem;"></div>
           <button class="button" @click="navegarAEdicion">Editar evento</button>
+          <button class="button" @click="navegarAProyecto">Ir al proyecto</button>
         </div>
         <div class="event-media">
           <div v-if="event.images && event.images.length" class="media-gallery">
@@ -84,6 +85,9 @@ const navegarAEdicion = () => {
     name: 'editar-evento',
     params: { evento: JSON.stringify(event.value) }
   })
+}
+const navegarAProyecto = () => {
+  router.push('/project/1')
 }
 </script>
 

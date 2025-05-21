@@ -29,6 +29,10 @@ const navigateToFinance = () => {
   router.push('/project/1/finance')
 }
 
+const navigateToPreview = () => {
+  router.push('/preview')
+}
+
 // Mock data for user elements
 const projectElements = ref([
   { id: 1, title: 'To-Do', info: 'Done: 4\nPending: 2\nScore: 6.67', navigate: navigateToToDo },
@@ -67,9 +71,9 @@ const addEmptyElement = () => {
               </div>
             </div>
           </div>
-          
           <!-- Create Event Button (moved to bottom) -->
           <button class="create-btn" @click="addEmptyElement">Añadir Elemento en Blanco</button>
+          <button class="create-btn" @click="navigateToPreview">Vista Previa del Proyecto</button>
         </div>
       </main>
     </div>
