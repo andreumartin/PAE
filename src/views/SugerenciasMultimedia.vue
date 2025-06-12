@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div style="flex-direction: column; font-family: sans-serif;">
     <!-- Header -->
     <header style="color: #23408e; padding: 1rem; font-size: 1.25rem; font-weight: bold;">
@@ -17,23 +17,23 @@
         }"
       >
         <div
-        :style="{
-          maxWidth: '75%',
-          padding: '0.75rem 1rem',
-          borderRadius: '1rem',
-          backgroundColor: msg.from === 'user' ? '#e0e7ff' : 'white',
-          boxShadow: msg.from === 'user' ? 'none' : '0 2px 4px rgba(0,0,0,0.1)',
-          textAlign: msg.from === 'user' ? 'right' : 'left',
-          whiteSpace: 'pre-line',
-          fontSize: '0.875rem',
-          color: 'black'
-        }"
-
+          :style="{
+            maxWidth: '75%',
+            padding: '0.75rem 1rem',
+            borderRadius: '1rem',
+            backgroundColor: msg.from === 'user' ? '#e0e7ff' : 'white',
+            boxShadow: msg.from === 'user' ? 'none' : '0 2px 4px rgba(0,0,0,0.1)',
+            textAlign: msg.from === 'user' ? 'right' : 'left',
+            whiteSpace: 'pre-line',
+            fontSize: '0.875rem',
+            color: 'black'
+          }"
         >
           <ul v-if="Array.isArray(msg.text)">
             <li v-for="(line, idx) in msg.text" :key="idx">{{ line }}</li>
           </ul>
-          <p v-else>{{ msg.text }}</p>
+          <p v-else-if="typeof msg.text === 'string'">{{ msg.text }}</p>
+          <div v-else-if="msg.html" v-html="msg.html"></div>
         </div>
       </div>
     </div>
@@ -89,16 +89,23 @@ function sendMessage() {
 
   const lower = userText.toLowerCase()
   let reply = 'Lo siento, ¿podrías reformular tu pregunta?'
+  let html = null
 
   if (lower.includes('imagen') && lower.includes('crear')) {
-    reply = 'Aquí tienes una imagen promocional generada basada en tu evento (simulada):\n\n🖼️ [Imagen generada]'
+    html = `<p>Aquí tienes una imagen promocional generada basada en tu evento:</p>
+            <img src="src/assets/Imagen_Promocional.webp" alt="Imagen generada" style="max-width: 100%; border-radius: 8px; margin-top: 0.5rem;">`
   } else if (lower.includes('consejo') || lower.includes('mejorar diseño')) {
     reply = 'Algunos consejos:\n• Usa imágenes claras y centradas\n• Colores vivos pero legibles\n• Añade el logo del evento si puedes'
   } else if (lower.includes('evaluar') || lower.includes('subido')) {
     reply = 'Estoy evaluando la imagen... Parece atractiva, pero podrías mejorar el contraste y usar una fuente más legible.'
   }
 
-  messages.value.push({ from: 'bot', text: reply })
+  if (html) {
+    messages.value.push({ from: 'bot', html })
+  } else {
+    messages.value.push({ from: 'bot', text: reply })
+  }
+
   input.value = ''
 }
 
