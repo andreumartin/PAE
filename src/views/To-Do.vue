@@ -92,6 +92,23 @@ export default {
             { text: 'Organizar equipo de voluntarios', done: false },
             ],
         },
+        {
+            name: 'Titulo del evento',
+            tasks: [
+            { text: 'Titulo breve', done: false },
+            { text: 'Titulo autodescriptivo', done: true },
+            { text: 'Titulo llamativo', done: false },
+            ],
+        },
+        {
+            name: 'Descripción del evento',
+            tasks: [
+            { text: 'Explicacion detallada del evento', done: false },
+            { text: 'Itinerario completo de actividades', done: true },
+            { text: 'Invitados especiales', done: false },
+            { text: 'Redes sociales relacionadas', done: false },
+            ],
+        },
       ],
       newSectionName: "",
       newTaskText: "",
