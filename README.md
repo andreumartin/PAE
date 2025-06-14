@@ -14,16 +14,10 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 
 ```sh
 npm install
-```
 
-### Compile and Hot-Reload for Development
+## Llicència
 
-```sh
-npm run dev
-```
+Aquest projecte està llicenciat sota la [Apache License 2.0](LICENSE).
 
-### Compile and Minify for Production
+© 2025 Carles Aguilera, Daniel Castellanos, Álex Romero i Andreu Martin, Aire Lliure.
 
-```sh
-npm run build
-```
