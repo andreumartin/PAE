@@ -19,5 +19,5 @@ npm install
 
 Aquest projecte està llicenciat sota la [Apache License 2.0](LICENSE).
 
-© 2025 Carles Aguilera, Daniel Castellanos, Álex Romero i Andreu Martin, Aire Lliure.
+© 2025 Carles Aguilera, Daniel Castellanos, Álex Romero i Andreu Martin, Easy Events.
 
