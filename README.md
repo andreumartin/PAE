@@ -1,6 +1,6 @@
 
 # 🎉 FIB - PAE 2024-2025Q2  
-### *Authors: Carles Aguilera, Daniel Castellanos, Álex Romero, Andreu Martin*
+### *Authors: Carles Aguilera, Daniel Castellanos, Andreu Martin, Álex Romero*
 
 ---
 
@@ -98,4 +98,4 @@ This release is intended as a basic, functional **demonstration prototype** only
 
 This project is licensed under the [Apache License 2.0](LICENSE).
 
-© 2025 Carles Aguilera, Daniel Castellanos, Álex Romero, and Andreu Martin, Aire Lliure.
+© 2025 Carles Aguilera, Daniel Castellanos, Andreu Martin and Álex Romero, Easy Events.
