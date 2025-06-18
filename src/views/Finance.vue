@@ -31,14 +31,14 @@ export default {
   data() {
     return {
       costs: [
-        { id: 1, name: 'Coste 1', amount: 100 },
-        { id: 2, name: 'Coste 2', amount: 200 },
-        { id: 3, name: 'Coste 3', amount: 300 }
+        { id: 1, name: 'Equipo de sonido', amount: 1000 },
+        { id: 2, name: 'Equipo de luces', amount: 2000 },
+        { id: 3, name: 'Comida y bebida', amount: 300 }
       ],
       funds: [
-        { id: 1, name: 'Fondo 1', amount: 1000 },
-        { id: 2, name: 'Fondo 2', amount: 2000 },
-        { id: 3, name: 'Fondo 3', amount: 3000 }
+        { id: 1, name: 'Presupuesto inicial interno', amount: 1000 },
+        { id: 2, name: 'Estrella Damm proveedor', amount: 2000 },
+        { id: 3, name: 'Dissidence proveedor', amount: 3000 }
       ]
     }
   },

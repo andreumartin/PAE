@@ -12,10 +12,9 @@ import '@schedule-x/theme-default/dist/calendar.css'
 const search = ref('')
 
 const allEvents = [
-  { id: '1', title: 'Evento 1', start: '2025-05-04', end: '2025-05-04' },
-  { id: '2', title: 'Evento 2', start: '2025-05-05', end: '2025-05-05' },
-  { id: '3', title: 'Evento 3', start: '2025-05-06', end: '2025-05-06' },
-  { id: '4', title: 'porsche 4', start: '2025-06-07', end: '2025-06-07' },
+  { id: '1', title: 'Grabación contenido promocional TikTok', start: '2025-05-05', end: '2025-05-05' },
+  { id: '2', title: 'Reunión con proveedores', start: '2025-05-09', end: '2025-05-09' },
+  { id: '3', title: 'Organización voluntarios', start: '2025-05-14', end: '2025-05-14' },
 ]
 
 function getFilteredEvents() {

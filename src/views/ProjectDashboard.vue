@@ -35,11 +35,11 @@ const navigateToPreview = () => {
 
 // Mock data for user elements
 const projectElements = ref([
-  { id: 1, title: 'To-Do', info: 'Done: 4\nPending: 2\nScore: 6.67', navigate: navigateToToDo },
-  { id: 2, title: 'Concept', info: 'Conferencia en Barcelona...', navigate: navigateToConcept },
+  { id: 1, title: 'To-Do', info: 'Done: 6\nPending: 10\nScore: 3.75', navigate: navigateToToDo },
+  { id: 2, title: 'Concept', info: 'UWS Video Part Festival 2025 presented by...', navigate: navigateToConcept },
   { id: 3, title: 'Multimedia', info: 'folleto-promocional.png\ntrailer-video.mp4\n...', navigate: navigateToMultimedia },
-  { id: 4, title: 'Timeline', info: 'Proximament: Reunió marketing...', navigate: navigateToTimeline },
-  { id: 5, title: 'Finance', info: 'Budget: $1000\nCosts: $500', navigate: navigateToFinance }
+  { id: 4, title: 'Timeline', info: 'Proximament: Grabación contenido promocional, ...', navigate: navigateToTimeline },
+  { id: 5, title: 'Finance', info: 'Balance: 2700,00€\nBudget: 6000,00€\nCosts: 3300,00€', navigate: navigateToFinance }
 ])
 
 const addEmptyElement = () => {
@@ -55,7 +55,7 @@ const addEmptyElement = () => {
       <main class="dashboard-content">
         <div class="content-header">
           <p></p>
-          <h1>Project 1</h1>
+          <h1>UWS Video Part Festival 2025</h1>
           <p></p>
         </div> 
         <!-- Event List -->

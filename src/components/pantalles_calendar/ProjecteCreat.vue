@@ -51,12 +51,13 @@ function formatDate(dateStr) {
 }
 
 const event = ref({
-  title: 'Concierto de Primavera',
-  description: '¡Ven a disfrutar de la mejor música en vivo con artistas internacionales y un ambiente único! No te pierdas este gran evento musical.',
-  start: '2025-05-10T20:00',
-  end: '2025-05-11T02:00',
+  title: 'UWS VideoPart Festival 2025 presented by Dissidence',
+  description: 'El mayor festival de cine de deportes urbanos de Europa nace en Barcelona de la mano de la asociación creada por Barcelona Street Jam y Urban World Series. Un nuevo concepto de evento cinematográfico donde el Scootering será el protagonista.',
+  start: '2025-05-23T19:00',
+  end: '2025-05-24T01:00',
   extra: 'Entradas disponibles en la web oficial. ¡Aforo limitado!',
   images: [
+    'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1028635123%2F2638004742511%2F1%2Foriginal.20250512-132308?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=940e44c5d1091b319579e31328f09008',
     'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80',
     'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
     'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80'
